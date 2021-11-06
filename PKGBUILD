@@ -7,7 +7,7 @@ license=(custom:MIT)
 pkgdesc='Modular Wayland compositor library (hwcomposer compatible)'
 url=https://github.com/droidian/wlroots
 arch=(x86_64 aarch64)
-provides=("libwlroots.so" "wlroots=${pkgver%%.r*}")
+provides=("libwlroots.so" "wlroots=${pkgver%%.r*}" "wlroots")
 conflicts=(wlroots)
 depends=(
 	glslang
@@ -54,8 +54,11 @@ build () {
 
 package () {
 	DESTDIR="${pkgdir}" meson install -C build
-	install -d ${pkgdir}/usr/lib/
+	install -d ${pkgdir}/usr/lib/pkgconfig/
 	ln -s "${pkgdir}"/usr/local/lib/libwlroots.so "${pkgdir}"/usr/lib/libwlroots.so
 	ln -s "${pkgdir}"/usr/local/lib/libwlroots.so "${pkgdir}"/usr/lib/libwlroots.so.7
+	install -d ${pkgdir}/usr/include/
+	ln -s "${pkgdir}"/usr/local/include/wlr "${pkgdir}"/usr/include/wlr
+	ln -s "${pkgdir}"/usr/local/lib/pkgconfig/wlroots.pc "${pkgdir}"/usr/lib/pkgconfig/wlroots.pc
 	install -Dm644 "${pkgname}/"LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
