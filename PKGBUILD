@@ -55,10 +55,10 @@ build () {
 package () {
 	DESTDIR="${pkgdir}" meson install -C build
 	install -d ${pkgdir}/usr/lib/pkgconfig/
-	ln -s "${pkgdir}"/usr/local/lib/libwlroots.so "${pkgdir}"/usr/lib/libwlroots.so
-	ln -s "${pkgdir}"/usr/local/lib/libwlroots.so "${pkgdir}"/usr/lib/libwlroots.so.7
+	ln -s /usr/local/lib/libwlroots.so "${pkgdir}"/usr/lib/libwlroots.so
+	ln -s /usr/local/lib/libwlroots.so "${pkgdir}"/usr/lib/libwlroots.so.7
 	install -d ${pkgdir}/usr/include/
-	ln -s "${pkgdir}"/usr/local/include/wlr "${pkgdir}"/usr/include/wlr
-	ln -s "${pkgdir}"/usr/local/lib/pkgconfig/wlroots.pc "${pkgdir}"/usr/lib/pkgconfig/wlroots.pc
+	ln -s /usr/local/include/wlr "${pkgdir}"/usr/include/wlr
+	ln -s /usr/local/lib/pkgconfig/wlroots.pc "${pkgdir}"/usr/lib/pkgconfig/wlroots.pc
 	install -Dm644 "${pkgname}/"LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
