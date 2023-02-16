@@ -1,7 +1,8 @@
+# Maintainer: Bardia Moshiri <fakeshell@bardia.tech>
 # Maintainer: Adrian Perez de Castro <aperez@igalia.com>
 # Maintainer: luka177 <lukapanio@gmail.com>
 pkgname=wlroots-hybris
-pkgver=0.12.0.r60.g035849b0
+pkgver=0.12.0.r142.g599e4aa4
 pkgrel=1
 license=(custom:MIT)
 pkgdesc='Modular Wayland compositor library (hwcomposer compatible)'
